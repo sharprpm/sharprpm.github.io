@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sharp RPM</title>
+    <script>
+      // Redirect all non-React routes to index.html
+      // Exclude paths that should not be redirected (static files, etc.)
+      if (
+        !window.location.pathname.startsWith('/static') &&  // Exclude static files
+        window.location.pathname !== '/index.html' &&       // Exclude index.html
+        window.location.pathname !== '/'                      // Exclude the root path
+      ) {
+        // Redirect to /index.html and preserve the path/query/hash
+        var redirect = '/index.html' + window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(redirect);
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
